@@ -1,10 +1,8 @@
-com\example\atenciones\controller\PacienteController.class
 com\example\atenciones\repository\HistorialMedicoRepository.class
-com\example\atenciones\Paciente.class
 com\example\atenciones\model\Paciente.class
 com\example\atenciones\service\PacienteServiceImpl.class
 com\example\atenciones\service\PacienteService.class
 com\example\atenciones\atencionesApplication.class
-com\example\atenciones\Historial.class
 com\example\atenciones\model\HistorialMedico.class
+com\example\atenciones\controller\Paciente2Controller.class
 com\example\atenciones\repository\PacienteRepository.class
