@@ -3,7 +3,6 @@ com\example\atenciones\repository\HistorialMedicoRepository.class
 com\example\atenciones\Paciente.class
 com\example\atenciones\model\Paciente.class
 com\example\atenciones\service\PacienteServiceImpl.class
-com\example\atenciones\PacienteController.class
 com\example\atenciones\service\PacienteService.class
 com\example\atenciones\atencionesApplication.class
 com\example\atenciones\Historial.class
