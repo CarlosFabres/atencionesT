@@ -2,6 +2,8 @@ package com.example.atenciones.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.ArgumentMatchers.anyLong;
 
@@ -59,4 +61,35 @@ public class PacienteServiceTest {
         // Verificación: Se asegura de que el nombre del paciente obtenido coincide con el nombre especificado
         assertEquals("Carlos Fabres", resultado.get().getName());
     }
+
+    
+    @Test
+    public void updatePacienteTest() {
+        // Creación de un objeto Paciente para utilizar como datos de prueba
+        Paciente paciente = new Paciente();
+        paciente.setId(1L);
+        paciente.setName("Carlos Fabres");
+
+        // Configuración del mock del repositorio para simular la existencia del paciente
+        when(pacienteRepositoryMock.existsById(1L)).thenReturn(true);
+
+        // Configuración del mock del repositorio para devolver el paciente actualizado
+        when(pacienteRepositoryMock.save(paciente)).thenReturn(paciente);
+
+        // Llamada al método bajo prueba para actualizar un paciente
+        Paciente resultado = pacienteServicio.updatePaciente(1L, paciente);
+
+        // Verificación: Se asegura de que el nombre del paciente actualizado coincide con el nombre especificado
+        assertEquals("Carlos Fabres", resultado.getName());
+    }
+
+    @Test
+    public void deletePacienteTest() {
+        // Llamada al método bajo prueba para eliminar un paciente
+        pacienteServicio.deletePaciente(1L);
+    
+        // Verificación: Se asegura de que el método deleteById haya sido llamado una vez con el ID especificado
+        verify(pacienteRepositoryMock, times(1)).deleteById(1L);
+    }
+
 }
